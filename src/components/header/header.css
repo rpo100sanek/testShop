@@ -1,0 +1,29 @@
+.header {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    padding-top: 10px;
+}
+
+.wrapper {
+    display: flex;
+    flex-grow: 1;
+}
+
+.header__store-title {
+    margin-left: 20px;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+}
+
+.header__store-title:hover {
+    color: blue;
+}
+
+.header__cart-btn-wrapper {
+    justify-content: flex-end;
+}

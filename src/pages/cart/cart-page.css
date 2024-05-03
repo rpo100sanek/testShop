@@ -1,0 +1,31 @@
+.order-page {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    text-align: center;
+}
+
+.order-page__item {
+    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+    border-style: solid;
+    border-width: 2px;
+    background-color: rgb(175, 172, 172);
+    margin-bottom: 20px;
+}
+
+.order-page__total-price {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.order-page__right {
+    width: 100%;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.order-page_btn {
+    display: flex;
+    justify-content: flex-end
+}
