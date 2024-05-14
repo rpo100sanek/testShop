@@ -5,7 +5,7 @@ import cartReducer from './good-page/reduser';
 export default configureStore({
     reducer: {
         cart: goodsReducer,
-        game: cartReducer
+        pokemon: cartReducer
     },
 });
 

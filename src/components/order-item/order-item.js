@@ -5,19 +5,19 @@ import { deleteItemFromCart } from '../../store/cart/goodsSlice';
 import './order-item.css';
 import { IoMdCloseCircleOutline } from 'react-icons/io';
 
-export const OrderItem = ({ game }) => {
+export const OrderItem = ({ item }) => {
     const dispatch = useDispatch();
     const handleDeleteClick = () => {
-        dispatch(deleteItemFromCart(game.id))
+        dispatch(deleteItemFromCart(item.id))
     }
     return (
         <div className="order-item">
             <div className="order-item__title">
-                <img src={game.image} alt="" />
-                <span> {game.titel} </span>
+                <img src={item.image} alt="" />
+                <span> {item.name} </span>
             </div>
             <div className="order-item__price">
-                <span>{game.cost} uah.</span>
+                <span>{item.maxCP} uah.</span>
                 <IoMdCloseCircleOutline
                     color="red"
                     size={20}

@@ -1,17 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const gamesSlice = createSlice({
-    name: 'game',
+const pokemonSlice = createSlice({
+    name: 'pokemon',
     initialState: {
-        currentGame: null
+        currentPokemon: null
     },
     reducers: {
-        setCurrentGame: (state, action) => {
-            state.currentGame = action.payload
+        setCurrentPokemon: (state, action) => {
+            state.currentPokemon = action.payload
         },
     }
 });
 
-export const { setCurrentGame } = gamesSlice.actions;
-export const selectGame = (state) => state.game.currentGame;
-export default gamesSlice.reducer;
+export const { setCurrentPokemon } = pokemonSlice.actions;
+export const selectPokemon = (state) => state.pokemon.currentPokemon;
+export default pokemonSlice.reducer;

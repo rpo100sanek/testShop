@@ -5,7 +5,7 @@ import { calcTotalPrice } from '../utils';
 import { ItemsInCart } from '../items-in-cart/items-in-cart';
 import { BsCart3 } from "react-icons/bs";
 import "./cart-block.css";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const CartBlock = () => {
     const [isCartMenuVisible, setIsCartMenuVisible] = useState(false);

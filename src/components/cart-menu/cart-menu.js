@@ -12,23 +12,23 @@ export const CartMenu = ({ onClick }) => {
         <div className="cart-menu">
             <div className="cart-menu__games-list">
                 {items.length > 0
-                    ? items.map((good) => (
+                    ? items.map((item) => (
                         <CartItem
-                            key={good.id}
-                            props={good}
+                            key={item.id}
+                            props={item}
                         />
                     ))
-                    : "Корзина пуста"}
+                    : "Cart empty"}
             </div>
             {items.length > 0 ? (
                 <div className="cart-menu__arrange">
                     <div className="cart-menu__total-price">
-                        <span>Итого:</span>
+                        <span>Total:</span>
                         <span>{calcTotalPrice(items)} uah.</span>
                     </div>
                     <div className="cart-menu__btn">
                         <Button onClick={onClick}>
-                            Оформить заказ
+                            Order
                         </Button>
                     </div>
                 </div>

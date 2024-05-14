@@ -15,7 +15,8 @@
 
 .order-page__total-price {
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
+    text-align: end;
     margin-bottom: 20px;
 }
 

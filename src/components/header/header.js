@@ -12,8 +12,9 @@ export const Header = () => {
                 <div className="wrapper">
                     <Link to="/" className="header__store-title">
                         <Button>
-                            Store
+                            Pokemons cards
                         </Button>
+
                     </Link>
                 </div>
                 <div className="wrapper header__cart-btn-wrapper">

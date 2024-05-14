@@ -2,12 +2,12 @@ import './goods.css'
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setItemInCart, deleteItemFromCart } from '../../store/cart/goodsSlice';
-import { Link, useNavigate } from 'react-router-dom';
-import { setCurrentGame } from '../../store/good-page/reduser'
+import { useNavigate } from 'react-router-dom';
+import { setCurrentPokemon } from '../../store/good-page/reduser'
 import { Button } from '../button';
 
 
-export default function Goods({ props }) {
+export default function Pokemon({ props }) {
 
     const dispatch = useDispatch();
     const items = useSelector((state) => state.cart.itemsInCart);
@@ -24,15 +24,22 @@ export default function Goods({ props }) {
     };
 
     const openItem = () => {
-        dispatch(setCurrentGame(props));
-        navigate(`goods/${props.id}`);
+        dispatch(setCurrentPokemon(props));
+        navigate(`goods/${props.name}`);
     };
 
     return (
         <div className='googs-item'>
-            <img src={props.image} alt="" />
-            <p><b>{props.titel}</b></p>
-            <p>Price {props.cost} uah</p>
+            <div className="pokemon">
+                <div key={props.id}>
+                    <h3>{props.name}</h3>
+                    <img width="100" height="100" alt={props.name} src={`${props.image}`} />
+                    <br />
+                    <p>{props.classification}</p>
+                    <p>Prise <b>{props.maxCP}</b> uah</p>
+                </div>
+
+            </div>
             <div className='googs-item_btn'>
                 <Button
                     onClick={openItem}

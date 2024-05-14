@@ -19,11 +19,13 @@ export const CartPage = () => {
             <div className="order-page" >
                 <div className="order-page_content">
                     <div className="order-page__item">
-                        {items.map(game => <OrderItem key={game.id} game={game} />)}
+                        {items.map(item => <OrderItem key={item.id} item={item} />)}
                     </div>
 
                     <div className="order-page__total-price">
-                        <span>{items.length} {enumerate(items.length, ['товар', 'товара', 'товаров'])} на сумму {calcTotalPrice(items)} uah.</span>
+                        <span>{items.length} {enumerate(items.length, ['card', 'cards'])}.</span>
+                        <br />
+                        <span>Total price <b>{calcTotalPrice(items)}</b> uah.</span>
                     </div>
 
                 </div>

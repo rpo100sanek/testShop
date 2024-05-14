@@ -16,11 +16,11 @@ export const CartItem = ({ props }) => {
         <div className="cart-item">
             <div className="cart-item-ico">
                 <img src={props.image} alt="" />
-                <span>{props.titel} </span>
+                <span>{props.name} </span>
             </div>
 
             <div className="cart-item__price">
-                <span>{props.cost} uah.</span>
+                <span>{props.maxCP} uah.</span>
                 <IoMdCloseCircleOutline
                     color="red"
                     size={20}

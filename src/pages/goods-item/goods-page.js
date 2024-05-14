@@ -1,40 +1,65 @@
 
-import React, { useRef } from "react";
+import React from "react";
 import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from "react-router";
-import { selectGame } from "../../store/good-page/reduser";
+import { selectPokemon } from "../../store/good-page/reduser";
 import { Button } from "../../components/button";
 import './goods-page.css';
+import { useQuery } from "@apollo/client";
+import { GET_POKEMON } from "../../apollo/pokemons";
 
 export const ItemPage = () => {
-    const game = useSelector(selectGame);
+    const pokemon = useSelector(selectPokemon);
     let navigate = useNavigate();
     let { id } = useParams();
-    // let buttonRef = React.useRef(null);
 
     function onDismiss() {
         navigate(-1);
     }
 
-    if (!game) { throw new Error(`No goods found with id: ${id}`) };
+    const { loading, error, data } = useQuery(GET_POKEMON, {
+        variables: {
+            name: id
+        },
+    });
+
+    if (loading) return null;
+
+    if (error) return `No goods found with id: ${id}  ${error}`;
 
     return (
         <div className="goods-page">
             <div className="goods-page__content">
-                <h1 className="goods-page__title">{game.titel}</h1>
+
                 <div className="goods-page__left">
-                    <img src={game.image} alt="" />
+                    <img src={data.pokemon.image} alt="" />
                 </div>
+                <div className="goods-page__right">
+                    <h1 className="goods-page__title">{data.pokemon.name}</h1>
 
-                <p>Price {game.cost} uah</p>
+                    <p>Max HP {data.pokemon.maxHP} points</p>
 
-                <p>Description...</p>
-                <Button
-                    // ref={buttonRef}
-                    onClick={onDismiss}
-                >
-                    Close
-                </Button>
+                    <p>Attack: </p>
+                    <ul>
+                        {data.pokemon.attacks.fast.map(item => (
+                            <li key={item.name}>Name: {item.name} // type: {item.type} // damage = {item.damage} points</li>
+                        ))}
+                    </ul>
+
+                    <p>Resistant: </p>
+                    <ul>
+                        {data.pokemon.resistant.map(item => (
+                            <li key={item}>{item} </li>
+                        ))}
+                    </ul>
+
+                    <p>Price <b>{data.pokemon.maxCP}</b> uah</p>
+                    <Button
+                        onClick={onDismiss}
+                    >
+                        Close
+                    </Button>
+                </div>
             </div>
         </div>
     );
